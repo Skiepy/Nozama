@@ -16,37 +16,27 @@
 
         <div id="picture"></div>
 
+        <div @dragover.prevent @drop.prevent>
+            <input type="file" multiple @change="uploadFile" />
+        </div>
+
+        <input type="submit" value="Submit">
+
     </form>
 </template>
 
-<!-- <script>
+<script>
 
-src = "https://cdn.jsdelivr.net/npm/vue@2.6.12";
-
-const app = new Vue({
-    data: () => ({ File: [] }),
-    template: `
-    <div style="border-style:solid;" @dragover.prevent @drop.prevent>
-        <input type="file" multiple @change="uploadFile" />
-        <div @drop="dragFile" style="background-color:green;margin-bottom:10px;padding:10px;">
-            Or drag the file here
-            <div v-if="File.length">
-                <ul v-for="file in File" :key="file">
-                    <li>{{ file.name }}</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    `,
+export default {
+    data() {
+        return {
+            file: []
+        }
+    },
     methods: {
         uploadFile(e) {
             this.File = e.target.files;
         },
-        dragFile(e) {
-            this.File = e.dataTransfer.files;
-        },
     }
-});
-app.$mount("#picture");
-
-</script> -->
+}
+</script>
