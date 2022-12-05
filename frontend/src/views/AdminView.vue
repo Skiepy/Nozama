@@ -19,9 +19,9 @@
     </form>
 </template>
 
-<script>
+<!-- <script>
 
-src="https://cdn.jsdelivr.net/npm/vue@2.6.12";
+src = "https://cdn.jsdelivr.net/npm/vue@2.6.12";
 
 const app = new Vue({
     data: () => ({ File: [] }),
@@ -49,4 +49,4 @@ const app = new Vue({
 });
 app.$mount("#picture");
 
-</script>
+</script> -->
