@@ -16,9 +16,8 @@
 
         <div id="picture"></div>
 
-        <div @dragover.prevent @drop.prevent>
-            <input type="file" multiple @change="uploadFile" />
-        </div>
+        <label>Image</label>
+        <input type="file" multiple @change="uploadFile" />
 
         <input type="submit" value="Submit">
 
