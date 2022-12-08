@@ -5,7 +5,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'skiep',
   password: 'Upapit25',
-  database: 'dbresto'
+  database: 'dbAmazon'
 });
 
 export default db;

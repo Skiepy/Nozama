@@ -11,7 +11,7 @@
         <label for="Description">Description :</label><br>
         <input type="text" id="Description" name="Description"><br>
 
-        <label for="Price">Price (ZAR):</label><br>
+        <label for="Price">Price (EUR):</label><br>
         <input type="text" id="Price" name="Price"><br>
 
         <div id="picture"></div>
