@@ -1,6 +1,6 @@
 <template>
     <div id="logo">
-        <img src="@/assets/nozama.png" alt="lo" id="logo">
+        <img src="@/assets/Images/nozama.png" alt="lo" id="logo">
     </div>
     <header>
         <nav id="header-nav">
