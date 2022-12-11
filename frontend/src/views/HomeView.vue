@@ -54,9 +54,7 @@ export default {
     
   },
   beforeMount() {
-    this.getAllProducts();
-    
-
+    // this.getAllProducts();
   }
 }
 </script>
