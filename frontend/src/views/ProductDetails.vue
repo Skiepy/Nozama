@@ -6,7 +6,8 @@
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Cart({{ cart }})</div>
+      <div class="cart">Cart({{ cart }})
+        <img src="@/assets/Images/caddy.webp" alt="" class="cad"></div>
       <div class="cadre" >
       <div class="product-display">
         <div class="product-container">
@@ -38,16 +39,18 @@
 </template>
   
 <style scoped>
-    .cart{
+.cad{
+  width: 15px;
+}
+  .cart{
     font-size: medium;
-    color: #fc9a00;
+    color: #221F1F;
   }
   .product-info{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #221F1F;
-    margin-top: 20px;
-    margin-right: 100px;
-    margin-left: 350px;
+    padding-top: 10px;
+    margin-left: 500px;
   }
   .img{
     width: 500px;
@@ -62,7 +65,7 @@
     text-transform: uppercase;
     background-color: #221F1F;
     width: 10%;
-    border: 0;
+    border : 2%;
     padding: 15px;
     color:white;
     font-size: 14px;
@@ -90,7 +93,9 @@
   /* padding-top: 20px; */
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color:#fc9a00;
+  text-align: left;
   align-items:baseline;
+  margin-left: 42%;
 }
 .cadre{
   position: relative;
@@ -100,12 +105,12 @@
   /* padding: 45px; */
   /* text-align: center; */
   border-radius : 1%;
-  /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); */
-  box-shadow: rgba(30, 53, 81, 0.212) 0px 0px 0px 2px, rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* box-shadow: rgba(30, 53, 81, 0.212) 0px 0px 0px 2px, rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset; */
   margin-top: 5%;
   /* margin-bottom: 5%; */
   margin-right: 5px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   box-sizing:border-box;
 }
 * {
@@ -121,7 +126,7 @@ export default {
     data() {
         return {
             cart: 0,
-            product: 'Crocs',
+            product: 'CROCS Classical',
             brand: 'Vue Mastery',
             selectedVariant: 0,
             inStock: true,
