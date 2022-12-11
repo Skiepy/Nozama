@@ -5,20 +5,20 @@
   </div> -->
 
   <MyHeader></MyHeader>
-<div class="all">
+<!-- <div class="all">
   <div class="product">
     <MyProduct></MyProduct>
   </div>
   <div class="product1">
     <MyProduct></MyProduct>
   </div>
-  <div class="product">
+  <div class="product2">
     <MyProduct></MyProduct>
   </div>
-  <div class="product1">
+  <div class="product3">
     <MyProduct></MyProduct>
   </div>
-</div>
+</div> -->
   <div v-if="(nbProducts > 0)">
     <div v-for="product in products">
       <MyProduct :id="product.id_product"></MyProduct>
@@ -67,11 +67,7 @@ export default {
   },
 
   beforeMount() {
-<<<<<<< Updated upstream
-    // this.getAllProducts();
-=======
     this.getAllProducts();
->>>>>>> Stashed changes
   }
 }
 </script>
@@ -79,16 +75,25 @@ export default {
 <style scoped>
 .all{
   margin-bottom: 100px;
+  padding-bottom: 20px;
   margin-left: 20px;
   padding: 60px;
-  height: 500px;
+  height: 900px;
   background-color: white;
 }
 .product{
   position: abolute;
   box-sizing:border-box;
   padding-right: 50%;
-  padding-bottom: 10%;
+  height: 50px;
+  background-color: white;
+  float: left;
+}
+.product2{
+  position: abolute;
+  box-sizing:border-box;
+  padding-right: 50%; 
+  padding-top: 30% ;
   height: 50px;
   background-color: white;
   float: left;
@@ -97,7 +102,17 @@ export default {
   position: absolute;
   box-sizing: border-box;
   padding-left: 50%;
-  padding-bottom: 10%;
+  padding-bottom: 0%;
+  padding-top: 30% ;
+  height: 50px;
+  background-color: white;
+  float: right;
+}
+.product3{
+  position: absolute;
+  box-sizing: border-box;
+  padding-left: 50%;
+  padding-bottom: 0%;
   height: 50px;
   background-color: white;
   float: right;

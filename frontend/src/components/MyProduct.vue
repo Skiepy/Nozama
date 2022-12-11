@@ -53,7 +53,6 @@ export default {
 }
 .product{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    z-index: 1;
     color: #221F1F;
     padding-top: 10px;
     margin-left: 500px;
@@ -61,8 +60,7 @@ export default {
 }
 .img{
     float: left;
-    z-index: 1;
-    width: 200px;
+    width: 400px;
     position: relative;
     float: left;
     display: block;
