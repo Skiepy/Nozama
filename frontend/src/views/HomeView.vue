@@ -5,7 +5,20 @@
   </div> -->
 
   <MyHeader></MyHeader>
-
+<div class="all">
+  <div class="product">
+    <MyProduct></MyProduct>
+  </div>
+  <div class="product1">
+    <MyProduct></MyProduct>
+  </div>
+  <div class="product">
+    <MyProduct></MyProduct>
+  </div>
+  <div class="product1">
+    <MyProduct></MyProduct>
+  </div>
+</div>
   <div v-if="(nbProducts > 0)">
     <div v-for="product in products">
       <MyProduct :id="product.id_product"></MyProduct>
@@ -51,10 +64,42 @@ export default {
         console.log(error)
       }
     },
-    
   },
+
   beforeMount() {
+<<<<<<< Updated upstream
     // this.getAllProducts();
+=======
+    this.getAllProducts();
+>>>>>>> Stashed changes
   }
 }
 </script>
+
+<style scoped>
+.all{
+  margin-bottom: 100px;
+  margin-left: 20px;
+  padding: 60px;
+  height: 500px;
+  background-color: white;
+}
+.product{
+  position: abolute;
+  box-sizing:border-box;
+  padding-right: 50%;
+  padding-bottom: 10%;
+  height: 50px;
+  background-color: white;
+  float: left;
+}
+.product1{
+  position: absolute;
+  box-sizing: border-box;
+  padding-left: 50%;
+  padding-bottom: 10%;
+  height: 50px;
+  background-color: white;
+  float: right;
+}
+</style>
