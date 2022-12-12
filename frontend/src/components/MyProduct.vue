@@ -50,8 +50,8 @@ export default {
   text-align: center;
 }
 .all{
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 70%;
   border-radius: 60px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   /* width: 1200px;
