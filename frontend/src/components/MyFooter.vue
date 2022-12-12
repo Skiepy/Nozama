@@ -22,7 +22,7 @@
                     <h3>Check your cart</h3>
                     <ul>
                         <li>
-                            <a href="#">Your cart</a>
+                            <router-link to="/basket"><a>Your cart</a></router-link>
                         </li>
                     </ul>
                 </div>
