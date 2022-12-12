@@ -13,6 +13,7 @@
     "core-js": "^3.8.3",
     "paypal-checkout": "^4.0.336",
     "vue": "^3.2.13",
+    "vue-cookies": "^1.8.2",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
