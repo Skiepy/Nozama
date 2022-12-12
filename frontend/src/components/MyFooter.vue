@@ -61,6 +61,7 @@ footer {
 .container {
     display: flex;
     margin-left : 28%;
+    margin-right : 28%;
 }
 .element {
     padding: 0px 20px;
@@ -77,7 +78,9 @@ footer {
 .element ul li a {
     color: white;
     text-decoration: none;
-    
+}
+.element ul li a:hover {
+    color: #aeb6be;
 }
 
 </style>

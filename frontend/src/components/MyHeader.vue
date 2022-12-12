@@ -32,8 +32,8 @@
                 </div>
 
                 <div id="searchbar"> <!-- 3 -->
-                    <form class="example" action="/action_page.php" style="margin:auto;">
-                        <input type="text" placeholder="Search.." name="search2">
+                    <form class="example" style="margin:auto;">
+                        <input type="text" placeholder="Search.." name="search" style="outline: none">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
@@ -68,7 +68,7 @@ export default {
             btnDrop.addEventListener('click', () => {
 
                 if (this.toggleIndex == true) {
-                    dropdown.style.height = `${btnDrop.scrollHeight}px`;
+                    dropdown.style.height = `67px`;
                     this.toggleIndex = false;
                 }
                 else if (this.toggleIndex == false) {
@@ -106,14 +106,14 @@ header {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding-top: 8px;
+    padding-top: 12px;
     padding-right : 20px;
 }
 
 /* nav */
 .dropdown {
     max-width: 200px;
-    height: 63px;
+    height: 67px;
     color: #f1f1f1;
     background: #ffb237;
     transition: height 0.4s ease-in-out;
@@ -182,7 +182,9 @@ header {
 /* search */
 #searchbar {
     box-sizing: border-box;
-    padding-right: 130px;
+    padding-right: 8%;
+    width : 80%;
+    padding-left : 12%;
 }
 
 form.example input[type=text] {
@@ -191,7 +193,7 @@ form.example input[type=text] {
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    width: 500px;
+    width: 60%;
     background: #f1f1f1;
     border-radius: 30px 0 0 30px;
 }
