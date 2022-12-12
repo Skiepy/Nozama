@@ -1,5 +1,5 @@
 // Import function from Checkout Model
-import { getCheckout, getCheckoutById, insertCheckout, updateCheckoutById, deleteCheckoutById } from "../models/checkoutModel";
+import { getCheckout, getCheckoutById, insertCheckout, updateCheckoutById, deleteCheckoutById } from "../models/checkoutModel.js";
 
 // Get All Checkout
 export const showCheckout = (req, res) => {

@@ -28,7 +28,7 @@
             <div id="headerbar">
 
                 <div id="logo"> <!-- 2 -->
-                    <img src="@/assets/Images/nozama.png" alt="lo" id="logo">
+                    <router-link to="/basket"><img src="@/assets/Images/nozama.png" alt="lo" id="logo"></router-link>
                 </div>
 
                 <div id="searchbar"> <!-- 3 -->

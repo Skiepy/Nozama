@@ -1,5 +1,5 @@
 // Import function from Basket Model
-import { getBasket, getBasketById, insertBasket, updateBasketById, deleteBasketById } from "../models/basketModel";
+import { getBasket, getBasketById, insertBasket, updateBasketById, deleteBasketById } from "../models/basketModel.js";
 
 // Get All Basket
 export const showBasket = (req, res) => {

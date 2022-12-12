@@ -249,22 +249,21 @@ export default {
                 this.contactForm = false;
                 this.paymentForm = true;
                 this.initPayment();
+
+                // @TODO store in DB
             }
-        }
+        },
+        // createSessionId(){
+        //     if (window.$cookies.get("sessionId") == null) {
+        //         window.$cookies.set("sessionId", Date.now());
+        //     }
+        // }
     },
     beforeMount() {
         this.contactForm = true;
         this.paymentForm = false;
+        // this.createSessionId();
     }
-    // mounted() {
-
-    // },
-    // watch: {
-    //     nonce: function() {
-
-    //         this.$router.push("/")
-    //     }
-    // }
 }
 </script>
   
