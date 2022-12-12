@@ -15,7 +15,7 @@ export const getBasket = (result) => {
 
 // Get Single Basket item
 export const getBasketById = (id, result) => {
-    db.query("SELECT * FROM dbamazon.basket WHERE id_basket = ?", [id], (err, results) => {
+    db.query("SELECT * FROM dbamazon.basket WHERE sessionId_basket = ?", [id], (err, results) => {
         if (err) {
             console.log(err);
             result(err, null);
