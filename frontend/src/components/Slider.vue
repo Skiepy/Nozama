@@ -9,13 +9,15 @@
     <script>
     
     export default {
-      name: 'HomePage',
+      name: 'HomeView',
       data() { 
         return {
+
           images: [
-            "https://imgs.search.brave.com/Q1XA7w2vNEBSLrUOxqc6FAT5Z9Y2sX7Iu1yNFWyJE6M/rs:fit:768:519:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzc1Lzcz/L2IzLzc1NzNiMzcw/MmI3MDI1NDI4MWMy/Yzg1YTY0YzJkNTI2/LmpwZw",
-            "https://imgs.search.brave.com/bdQ_SC2Xagevg2EWQns1c1eNkasfYPWz7yCNOv8-x9E/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/Z2FieW4uY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE3LzAx/L2ltYWdlczJwaG90/by1jdWlzaW5lLWdh/c3Ryb25vbWlxdWUt/NDAuanBn",
-            "https://imgs.search.brave.com/BITnhkJ65e4MJgOusEE9FvIgxCJkI3eeyshHQdd7pI0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzE5Lzdm/LzliLzE5N2Y5Yjdj/N2I3MjU2MGE0Yjdi/MzZiNzAyODk3M2U5/LmpwZw"
+            require('@/assets/Images/slides/marvel.png'),
+            require('@/assets/Images/slides/steampunk.png'),
+            require('@/assets/Images/slides/russe.png'),
+            require('@/assets/Images/slides/pinky.png'),
           ],
           timer: null,
           currentIndex: 0
@@ -71,7 +73,8 @@
     }
     
     img {
-      width:600px;
+      width:300%;
+      height:100%;
       margin-bottom : 100px;
     }
     

@@ -37,7 +37,8 @@ export default {
     HelloWorld,
     MyHeader,
     MyFooter,
-    MyProduct
+    MyProduct,
+    Slider
   },
   data() {
     return {
@@ -109,6 +110,8 @@ export default {
   float: right;
 }
 .slides{
+  margin-right: 5%;
+  margin-left: 5%;
   height: 30%;
   width: 30%;
 }
