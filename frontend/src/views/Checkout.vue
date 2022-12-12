@@ -1,13 +1,79 @@
 <template>
     <div class="container">
         <div class="col-6 offset-3">
-            <div class="card bg-light">
-                <div class="card-header">Payment Information</div>
+            <div class="card bg-light" id="billing" v-if="contactForm">
+                <div class="card-header"><b>Billing Information</b></div>
+                <div class="card-body">
+                    <div class="alert alert-danger" v-if="empty">
+                        Please fill all informations.
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>First Name</label>
+                                    <input type="text" id="firstName" v-model="firstName" class="form-control"
+                                        placeholder="Enter First Name" required>
+                                </div>
+                                <div class="col-6">
+                                    <label>Last Name</label>
+                                    <input type="text" id="lastName" v-model="lastName" class="form-control"
+                                        placeholder="Enter Last Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <div class="input-group">
+                                <input type="email" id="email" v-model="email" class="form-control"
+                                    placeholder="example@gmail.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <div class="input-group">
+                                <input type="tel" id="phoneNb" v-model="phoneNb" class="form-control"
+                                    placeholder="07XXXXXXXX" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Street Address</label>
+                            <div class="input-group">
+                                <input type="text" id="address" v-model="address" class="form-control"
+                                    placeholder="1 Avenue de la République" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>City</label>
+                                    <input type="text" id="city" v-model="city" class="form-control"
+                                        placeholder="Villejuif" required>
+                                </div>
+                                <div class="col-6">
+                                    <label>Postal Code</label>
+                                    <input type="number" id="postalCode" v-model="postalCode" class="form-control"
+                                        placeholder="94800" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <button class="btn btn-primary btn-block" @click.prevent="contactSubmit()">Go to payment</button> -->
+                        <input class="btn btn-primary btn-block" @click.prevent="contactSubmit()" value="Continue">
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="card bg-light" id="payment" v-if="paymentForm">
+                <div class="card-header"><b>Payment Information</b></div>
                 <div class="card-body">
                     <div class="alert alert-success" v-if="nonce">
                         Payment successful !
                         <br>
                         You will be redirected in a few seconds...
+                        <br>
+                        <button class="btn btn-primary btn-block" @click="paymentSuccessful()">Go back to the
+                            website</button>
                     </div>
                     <div class="alert alert-danger" v-if="error">
                         {{ error }}
@@ -58,7 +124,18 @@ export default {
             hostedFieldInstance: false,
             nonce: "",
             error: "",
-            amount: 10
+            amount: 10,
+            empty: false,
+            contactForm: true,
+            paymentForm: false,
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNb: "",
+            address: "",
+            city: "",
+            postalCode: "",
+
         }
     },
     methods: {
@@ -155,22 +232,54 @@ export default {
                 .catch(err => {
                     console.log(err);
                 });
+        },
+        paymentSuccessful() {
+            this.$router.push("/");
+        },
+        async contactSubmit() {
+            if (this.firstName == ""
+                || this.lastName == ""
+                || this.email == ""
+                || this.phoneNb == ""
+                || this.address == ""
+                || this.city == ""
+                || this.postalCode == "") {
+                this.empty = true;
+            } else {
+                this.contactForm = false;
+                this.paymentForm = true;
+                this.initPayment();
+            }
         }
     },
-    mounted() {
-        this.initPayment();
-    },
-    watch: {
-        nonce: function() {
-            setTimeout(this.$router.replace("/"), 5000);
-        }
-    }
+    // mounted() {
+
+    // },
+    // watch: {
+    //     nonce: function() {
+
+    //         this.$router.push("/")
+    //     }
+    // }
 }
 </script>
   
 <style scoped>
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css");
+
 body {
     padding: 20px;
+}
+
+.container {
+    padding-top: 75px;
+}
+
+#billing {
+    margin-bottom: 50px;
+}
+
+#payment {
+    margin-bottom: 200px;
 }
 </style>
