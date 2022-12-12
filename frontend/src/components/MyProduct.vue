@@ -1,7 +1,7 @@
 <template>
     <div class="cont">
     <div class="all">
-    <img src="@/assets/Images/zueco_crocs.webp" alt="" class="img">
+    <img src="@/assets/Images/crocs_clog/clog_bleu.png" alt="" class="img">
     <div class="allprod">
         <div class="text">
     <div class="product">
