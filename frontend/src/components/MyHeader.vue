@@ -6,11 +6,11 @@
         <div id="headerAll">
 
             <div class="dropdown"> <!-- 1 -->
-                <button class="bloc-top" @mouseover="scroll">
+                <button class="bloc-top" @mouseenter="scrolldown" @mouseleave="scrollup">
                     <span>Products</span>
                     <img src="@/assets/Images/hamburger.png">
                 </button>
-                <div class="bloc-links">
+                <div class="bloc-links" @mouseenter="scrolldown" @mouseleave="scrollup">
                     <ul>
                         <li>
                             <a href="#">Classic</a>
@@ -60,22 +60,13 @@ export default {
     },
 
     methods: {
-        scroll() {
-
+        scrolldown() {
             const dropdown = document.querySelector(".dropdown");
-            const btnDrop = document.querySelector(".bloc-top");
-
-            btnDrop.addEventListener('click', () => {
-
-                if (this.toggleIndex == true) {
-                    dropdown.style.height = `67px`;
-                    this.toggleIndex = false;
-                }
-                else if (this.toggleIndex == false) {
-                    dropdown.style.height = `${dropdown.scrollHeight}px`;
-                    this.toggleIndex = true;
-                }
-            })
+            dropdown.style.height = `155px`;
+        },
+        scrollup() {
+            const btnDrop = document.querySelector(".dropdown");
+            btnDrop.style.height = `67px`;
         }
     },
 
@@ -87,7 +78,7 @@ export default {
 /* general header */
 
 header {
-    z-index : 10;
+    z-index: 10;
     position: fixed;
     top: 0;
     width: 100%;
@@ -107,7 +98,7 @@ header {
     width: 100%;
     justify-content: space-between;
     padding-top: 12px;
-    padding-right : 20px;
+    padding-right: 20px;
 }
 
 /* nav */
@@ -123,6 +114,7 @@ header {
 .bloc-top {
     padding: 20px;
     display: block;
+    height: 67px;
     width: 100%;
     border: none;
     font-size: 20px;
@@ -131,6 +123,10 @@ header {
     background: #ffb237;
     color: #f1f1f1;
     cursor: pointer;
+}
+
+.bloc-top:hover {
+    background: #e7991b;
 }
 
 .bloc-top img {
@@ -143,12 +139,14 @@ header {
     justify-content: left;
     align-items: left;
 }
+
 .bloc-links ul {
     margin: 0px;
-    padding : 0px 40px 0px 0px;
+    padding: 0px 40px 0px 0px;
 }
+
 .bloc-links li {
-    padding-top : 5px;
+    padding-top: 5px;
     list-style-type: none;
     text-align: left;
     justify-content: left;
@@ -170,6 +168,7 @@ header {
 
 .bloc-links li:last-child {
     padding-bottom: 20px;
+    border-radius : 20px;
 }
 
 /* logo */
@@ -183,8 +182,8 @@ header {
 #searchbar {
     box-sizing: border-box;
     padding-right: 8%;
-    width : 80%;
-    padding-left : 12%;
+    width: 80%;
+    padding-left: 12%;
 }
 
 form.example input[type=text] {
