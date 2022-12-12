@@ -47,7 +47,7 @@ export default {
     },
   },
   beforeMount() {
-    // this.getSessionProducts();
+    this.getSessionProducts();
   },
   components: { MyHeader, MyFooter }
 }
