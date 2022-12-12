@@ -15,8 +15,9 @@
     No products available, we apologize for the inconvenience.
   </div>
 </div>
-  
-
+<div class="slides">
+  <Slider></Slider>
+</div>
   <MyFooter></MyFooter>
 </template>
 
@@ -26,6 +27,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import MyFooter from '@/components/MyFooter.vue';
 import MyHeader from '@/components/MyHeader.vue';
 import MyProduct from '@/components/MyProduct.vue';
+import Slider from '@/components/Slider.vue';
 
 import axios from 'axios';
 
@@ -64,12 +66,7 @@ export default {
 <style scoped>
 
 .all{
-  margin-bottom: 100px;
-  padding-bottom: 20px;
-  margin-left: 20px;
-  padding: 60px;
-  height: 900px;
-  background-color: white;
+  height: auto;
 }
 .product{
   position: abolute;
@@ -106,5 +103,9 @@ export default {
   height: 50px;
   background-color: white;
   float: right;
+}
+.slides{
+  height: 30%;
+  width: 30%;
 }
 </style>

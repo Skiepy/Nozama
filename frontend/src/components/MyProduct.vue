@@ -1,7 +1,7 @@
 <template>
     <div class="cont">
     <div class="all">
-    <img src="@/assets/Images/crocsviolet.webp" alt="" class="img">
+    <img src="@/assets/Images/crocs_clog/clog_bleu.png" alt="" class="img">
     <div class="allprod">
         <div class="text">
     <div class="product">
@@ -50,57 +50,33 @@ export default {
   text-align: center;
 }
 .all{
-    /* display: inline-block;
-    position: relative;
-    background:#f4f4f1;
-    max-width: 360px;
-    width: 1000px;
-    margin: 0 auto 100px;
-    padding: 45px;
-    padding-bottom: 5%;
-    padding-top: 5%;
-    text-align: center;
-    border-radius : 2%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-top: 5%;
-    margin-bottom: 5%; */
-  width: 1200px;
+  width: 100%;
+  height: 70%;
+  border-radius: 60px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  /* width: 1200px;
   height: 370px;
   position: absolute;
   background: #f4f4f1;
-  /* max-width: 2000px; */
-  /* margin: 0 auto 100px; */
-  /* padding: 45px; */
-  /* text-align: center; */
-  border-radius: 1%;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 60px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin-top: 5%;
   margin-bottom: 5%;
-  margin-right: 5px;
-  /* margin-left: 5px; */
-  /* box-sizing: border-box; */
+  margin-right: 5px; */
 }
 .allprod{
-  width: 500px;
+  /* width: 500px;
   height: 300px;
-    /* position: absolute; */
-  margin: 0 auto 100px;
-  padding: 85px;
-  padding-right: 30%;
-  background-color: white;
-  /* padding: 45px; */
-  /* text-align: center; */
-  border-radius: 15%;
+  border-radius: 60px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin-right: 4%;
   margin-top: 2%;
   padding-bottom: 2%;
-  /* padding-right: 10%; */
-  /* margin-left: 5px; */
-  box-sizing: border-box;
+  box-sizing: border-box; */
 }
+/* }
 .text{
-    margin-top: 2%;
+  margin-top: 2%;
 }
 .product{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -134,6 +110,6 @@ export default {
   z-index: 1;
   float: left;
   display: block;
-}
+}  */
 
 </style>

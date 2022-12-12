@@ -13,7 +13,7 @@
       <div class="cadre">
         <div class="product-display">
           <div class="product-container">
-            <img src="@/assets/Images/crocsbleu.webp" alt="" class="img">
+            <img src="@/assets/Images/crocs_clog/clog_jaune.png" alt="" class="img">
             <!-- <img src="@/assets/Images/crocsviolet.webp" alt="" class="img"> -->
             <div class="product-info">
               <h1>{{ product }}</h1>
