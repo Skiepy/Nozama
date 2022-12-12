@@ -2,30 +2,35 @@
     <div class="footer-clean">
         <footer>
             <div class="container">
-                <div class="row justify-content-center">
 
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>ADMIN</h3>
-                        <ul>
-                            <li><a><router-link class="rl" to="/admin">ADMIN</router-link></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>TEXTE 2</h3>
-                    </div>
-
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>TEXTE 3</h3>
-                        <ul>
-                            <li><a><router-link to="/about">ABOUT US</router-link></a></li>
-                        </ul>
-                    </div>
-
-                    <div id="bottom-img">
-                        <img src="@/assets/Images/nozama.png" alt="lo" id="img">
-                    </div>
+                <div class="element">
+                    <h3>Our Products</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Slippers</a>
+                        </li>
+                        <li>
+                            <a href="#">Classic</a>
+                        </li>
+                        <li>
+                            <a href="#">Fancy</a>
+                        </li>
+                    </ul>
                 </div>
+
+                <div class="element">
+                    <h3>Check your cart</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Your cart</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="element">
+                    <img src="@/assets/Images/nozama.png" alt="lo" id="img">
+                </div>
+
             </div>
         </footer>
     </div>
@@ -44,11 +49,35 @@ export default {
 
 <style scoped>
 #img {
-    width: 120px;
-    margin-left: 20px;
+    width: 100px;
+    padding-top : 50px;
 }
 
 footer {
-    background-color : green;
+    color: #fff;
+    background-color: #232F3E;
 }
+
+.container {
+    display: flex;
+    margin-left : 28%;
+}
+.element {
+    padding: 0px 20px;
+    width : 200px;
+    justify-content : space-between;
+}
+
+.element ul {
+    padding: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.element ul li a {
+    color: white;
+    text-decoration: none;
+    
+}
+
 </style>
