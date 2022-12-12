@@ -3,11 +3,13 @@
     <div class="all">
     <img src="@/assets/Images/crocsviolet.webp" alt="" class="img">
     <div class="product">
-    Name: {{this.productName}}
-    <br>
+    Product: {{this.productName}}
+</div>
+    <div class="product">
     Description: {{this.productDescription}}
-    <br>
-    Price: {{this.productPrice}}
+</div>
+<div class="product1">
+    Price: {{this.productPrice}} $
 </div>
 </div>
 </div>
@@ -55,8 +57,16 @@ export default {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #221F1F;
     padding-top: 10px;
-    margin-left: 500px;
+    margin-right: 300px;
     float: right;
+    align-items: right;
+}
+.product1{
+    font-family:Arial, Helvetica, sans-serif;
+    color: #fc9a00;
+    margin-left: 300px;
+    float: right;
+    align-items: right;
 }
 .img{
     float: left;
@@ -65,5 +75,4 @@ export default {
     float: left;
     display: block;
 }
-
 </style>

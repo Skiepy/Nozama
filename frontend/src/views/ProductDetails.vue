@@ -51,7 +51,9 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: #221F1F;
   padding-top: 10px;
-  margin-left: 500px;
+  text-align: left;
+  align-items: baseline;
+  margin-left: 42%;
 }
 
 .img {
@@ -67,8 +69,8 @@
   font-size: 5px;
   text-transform: uppercase;
   background-color: #221F1F;
-  width: 10%;
-  border: 2%;
+  width: 18%;
+  border: 3%;
   padding: 15px;
   color: white;
   font-size: 14px;
