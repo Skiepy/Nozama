@@ -9,12 +9,12 @@
 </div><div class="product2">
     {{this.productName}}
 </div>
-    <div class="product">
+    <!-- <div class="product">
     Description: 
 </div>
 <div class="product2">
     {{this.productDescription}}
-</div>
+</div> -->
 <div class="product">
     Price: 
 </div>

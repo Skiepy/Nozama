@@ -18,6 +18,9 @@
 <div class="slides">
   <Slider></Slider>
 </div>
+<div class="text">
+  
+</div>
   <MyFooter></MyFooter>
 </template>
 

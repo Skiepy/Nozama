@@ -1,4 +1,5 @@
 <template>
+  <MyHeader></MyHeader> 
   <head>
     <title class="title">Vue Mastery</title>
   </head>
@@ -35,6 +36,7 @@
       </div>
     </div>
   </body>
+  <MyFooter></MyFooter>
 </template>
   
 <style scoped>
@@ -53,11 +55,12 @@
   padding-top: 10px;
   text-align: left;
   align-items: baseline;
-  margin-left: 42%;
+  margin-left: 60%;
 }
 
 .img {
-  width: 500px;
+  width: 30%;
+  margin-left: 10%;
   position: relative;
   z-index: 1;
   float: left;
@@ -69,7 +72,7 @@
   font-size: 5px;
   text-transform: uppercase;
   background-color: #221F1F;
-  width: 18%;
+  width: 22%;
   border: 3%;
   padding: 15px;
   color: white;
@@ -77,7 +80,7 @@
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
-  margin-left: 10px;
+  margin-right: 1%;
   border-radius: 2%;
   margin-top: 10px;
 }
@@ -96,20 +99,18 @@
   background-color: white;
   color: #1E3551;
 }
-
 .list {
   /* padding-top: 20px; */
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: #fc9a00;
   text-align: left;
   align-items: baseline;
-  margin-left: 42%;
 }
-
 .cadre {
   position: relative;
   background: #f4f4f1;
-  max-width: 2000px;
+  width: 100%;
+  height: 120%;
   margin: 0 auto 100px;
   /* padding: 45px; */
   /* text-align: center; */
@@ -123,7 +124,13 @@
 </style>
 
 <script>
+import MyFooter from '@/components/MyFooter.vue';
+import MyHeader from '@/components/MyHeader.vue';
 export default {
+  components: {
+    MyHeader,
+    MyFooter,
+  },
   props: [
     'id'
   ],
