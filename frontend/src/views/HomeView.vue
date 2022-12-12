@@ -27,6 +27,7 @@
   <div v-if="(nbProducts == 0)">
     No products available, we apologize for the inconvenience.
   </div>
+  
 
   <MyFooter></MyFooter>
 </template>
@@ -73,6 +74,7 @@ export default {
 </script>
 
 <style scoped>
+
 .all{
   margin-bottom: 100px;
   padding-bottom: 20px;

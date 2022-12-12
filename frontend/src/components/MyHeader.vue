@@ -3,26 +3,23 @@
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <div id="headerbarAll">
+        <div id="headerAll">
 
             <div class="dropdown"> <!-- 1 -->
-                <button class="bloc-top" @click="scroll">
+                <button class="bloc-top" @mouseover="scroll">
                     <span>Products</span>
                     <img src="@/assets/Images/hamburger.png">
                 </button>
                 <div class="bloc-links">
                     <ul>
                         <li>
-                            <a href="#">The Classic</a>
-                            <a href="#"></a>
+                            <a href="#">Classic</a>
                         </li>
                         <li>
                             <a href="#">Slippers</a>
-                            <a href="#"></a>
                         </li>
                         <li>
                             <a href="#">Fancy</a>
-                            <a href="#"></a>
                         </li>
                     </ul>
                 </div>
@@ -58,31 +55,25 @@ export default {
 
     data() {
         return {
-
+            toggleIndex: false,
         };
     },
 
     methods: {
-        async scroll() {
+        scroll() {
+
             const dropdown = document.querySelector(".dropdown");
             const btnDrop = document.querySelector(".bloc-top");
-            let toggleIndex = 10;
 
             btnDrop.addEventListener('click', () => {
 
-                if (toggleIndex == 0) {
+                if (this.toggleIndex == true) {
+                    dropdown.style.height = `${btnDrop.scrollHeight}px`;
+                    this.toggleIndex = false;
+                }
+                else if (this.toggleIndex == false) {
                     dropdown.style.height = `${dropdown.scrollHeight}px`;
-                    toggleIndex = 1;
-                    console.log("down");
-                }
-                else if (toggleIndex == 1) {
-                    // dropdown.style.height = `${btnDrop.scrollHeight}px`;
-                    dropdown.style.height = `50px`;
-                    toggleIndex = 0;
-                    console.log("up");
-                }
-                else {
-                    toggleIndex = 0;
+                    this.toggleIndex = true;
                 }
             })
         }
@@ -94,28 +85,26 @@ export default {
 
 <style scoped>
 /* general header */
+
 header {
-    z-index: 1;
-    position: sticky;
-    width: 100%;
-    height: 60px;
-    background-color: #131921;
-    overflow: hidden;
-    position: sticky;
+    z-index : 10;
+    position: fixed;
     top: 0;
-    font: 12px Arial;
+    width: 100%;
 }
 
 /* the entire header bar*/
-#headerbarAll {
+#headerAll {
     display: flex;
-    justify-content: space-between;
 }
 
 /* header bar ( logo / search / panier) */
 #headerbar {
+    height: 55px;
+    background-color: #131921;
+    font: 12px Arial;
     display: flex;
-    width:100%;
+    width: 100%;
     justify-content: space-between;
     padding-top: 8px;
 }
@@ -135,14 +124,12 @@ header {
     display: block;
     width: 100%;
     border: none;
-    outline: none;
     font-size: 20px;
     display: flex;
     justify-content: space-between;
     background: #ffb237;
     color: #f1f1f1;
     cursor: pointer;
-    border-radius: 5px;
 }
 
 .bloc-top img {
@@ -152,18 +139,28 @@ header {
 .bloc-links {
     padding: 0 22px;
     text-align: left;
+    justify-content: left;
+    align-items: left;
 }
-
+.bloc-links ul {
+    margin: 0px;
+    padding : 0px 40px 0px 0px;
+}
 .bloc-links li {
+    padding-top : 5px;
     list-style-type: none;
-    padding: 5px 0;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
 }
 
 .bloc-links li a {
+    text-align: left;
+    justify-content: left;
+    align-items: left;
     text-decoration: none;
     font-size: 18px;
     color: #f1f1f1;
-    margin-left: 5px;
 }
 
 .bloc-links li a:hover {
@@ -171,7 +168,7 @@ header {
 }
 
 .bloc-links li:last-child {
-    padding-bottom: 25px;
+    padding-bottom: 20px;
 }
 
 /* logo */
