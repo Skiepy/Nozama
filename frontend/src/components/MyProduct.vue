@@ -100,7 +100,7 @@ export default {
   box-sizing: border-box;
 }
 .text{
-   
+    margin-top: 2%;
 }
 .product{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

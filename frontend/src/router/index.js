@@ -28,10 +28,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/ProductDetails.vue')
   },
   {
-    path: '/checkout/:id',
-    name: 'checkout',
-
-    component: () => import(/* webpackChunkName: "about" */ '../views/Checkout.vue')
+    path: '/basket',
+    name: 'basket',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Basket.vue')
   }
 ]
 
