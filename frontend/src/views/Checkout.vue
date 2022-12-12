@@ -252,6 +252,10 @@ export default {
             }
         }
     },
+    beforeMount() {
+        this.contactForm = true;
+        this.paymentForm = false;
+    }
     // mounted() {
 
     // },
