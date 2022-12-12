@@ -34,7 +34,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Checkout.vue')
   },
   {
-    path: '/basket/:id',
+    path: '/basket',
     name: 'basket',
 
     component: () => import(/* webpackChunkName: "about" */ '../views/Basket.vue')
