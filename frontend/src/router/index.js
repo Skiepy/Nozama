@@ -31,7 +31,7 @@ const routes = [
     path: '/checkout/:id',
     name: 'checkout',
 
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProductDetails.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Checkout.vue')
   }
 ]
 
