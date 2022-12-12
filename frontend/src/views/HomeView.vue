@@ -66,7 +66,11 @@ export default {
 <style scoped>
 
 .all{
+  background-color: #f4f4f1;
   height: auto;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
 }
 .product{
   position: abolute;
