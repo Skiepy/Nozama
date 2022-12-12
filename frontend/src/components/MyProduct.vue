@@ -2,14 +2,26 @@
     <div class="cont">
     <div class="all">
     <img src="@/assets/Images/crocsviolet.webp" alt="" class="img">
+    <div class="allprod">
+        <div class="text">
     <div class="product">
-    Product: {{this.productName}}
+    Product: 
+</div><div class="product2">
+    {{this.productName}}
 </div>
     <div class="product">
-    Description: {{this.productDescription}}
+    Description: 
+</div>
+<div class="product2">
+    {{this.productDescription}}
+</div>
+<div class="product">
+    Price: 
 </div>
 <div class="product1">
-    Price: {{this.productPrice}} $
+    {{this.productPrice}} $
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -38,7 +50,7 @@ export default {
   text-align: center;
 }
 .all{
-    display: inline-block;
+    /* display: inline-block;
     position: relative;
     background:#f4f4f1;
     max-width: 360px;
@@ -51,28 +63,77 @@ export default {
     border-radius : 2%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 5%; */
+  width: 1200px;
+  height: 370px;
+  position: absolute;
+  background: #f4f4f1;
+  /* max-width: 2000px; */
+  /* margin: 0 auto 100px; */
+  /* padding: 45px; */
+  /* text-align: center; */
+  border-radius: 1%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-right: 5px;
+  /* margin-left: 5px; */
+  /* box-sizing: border-box; */
+}
+.allprod{
+  width: 500px;
+  height: 300px;
+    /* position: absolute; */
+  margin: 0 auto 100px;
+  padding: 85px;
+  padding-right: 30%;
+  background-color: white;
+  /* padding: 45px; */
+  /* text-align: center; */
+  border-radius: 15%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-right: 4%;
+  margin-top: 2%;
+  padding-bottom: 2%;
+  /* padding-right: 10%; */
+  /* margin-left: 5px; */
+  box-sizing: border-box;
+}
+.text{
+   
 }
 .product{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #221F1F;
-    padding-top: 10px;
-    margin-right: 300px;
-    float: right;
-    align-items: right;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #221F1F;
+  font-weight: bold;
+  padding-top: 5%;
+  text-align: left;
+  align-items: baseline;
+  margin-left: 42%;
+}
+
+.product2{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #221F1F;
+  padding-top: 5%;
+  text-align: left;
+  align-items: baseline;
+  margin-left: 42%;
 }
 .product1{
     font-family:Arial, Helvetica, sans-serif;
     color: #fc9a00;
-    margin-left: 300px;
+    margin-left: 500px;
+    padding-left: 6%;
     float: right;
     align-items: right;
 }
 .img{
-    float: left;
-    width: 400px;
-    position: relative;
-    float: left;
-    display: block;
+  width: 600px;
+  position: relative;
+  z-index: 1;
+  float: left;
+  display: block;
 }
+
 </style>

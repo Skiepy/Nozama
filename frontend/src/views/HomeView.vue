@@ -5,20 +5,7 @@
   </div> -->
 
   <MyHeader></MyHeader>
-<!-- <div class="all">
-  <div class="product">
-    <MyProduct></MyProduct>
-  </div>
-  <div class="product1">
-    <MyProduct></MyProduct>
-  </div>
-  <div class="product2">
-    <MyProduct></MyProduct>
-  </div>
-  <div class="product3">
-    <MyProduct></MyProduct>
-  </div>
-</div> -->
+  <div class="all">
   <div v-if="(nbProducts > 0)">
     <div v-for="product in products">
       <MyProduct :id="product.id_product"></MyProduct>
@@ -27,6 +14,7 @@
   <div v-if="(nbProducts == 0)">
     No products available, we apologize for the inconvenience.
   </div>
+</div>
   
 
   <MyFooter></MyFooter>
