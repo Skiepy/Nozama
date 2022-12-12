@@ -107,6 +107,7 @@ header {
     width: 100%;
     justify-content: space-between;
     padding-top: 8px;
+    padding-right : 20px;
 }
 
 /* nav */
@@ -181,6 +182,7 @@ header {
 /* search */
 #searchbar {
     box-sizing: border-box;
+    padding-right: 130px;
 }
 
 form.example input[type=text] {
