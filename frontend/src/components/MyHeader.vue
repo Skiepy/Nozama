@@ -27,19 +27,22 @@
 
             <div id="headerbar">
 
-                <div id="logo"> <!-- 2 -->
+                <div id="logo">
                     <router-link to="/"><img src="@/assets/Images/nozama.png" alt="lo" id="logo"></router-link>
                 </div>
 
-                <div id="searchbar"> <!-- 3 -->
+                <div id="searchbar">
                     <form class="example" style="margin:auto;">
                         <input type="text" placeholder="Search.." name="search" style="outline: none">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
 
-                <div id="cart"> <!-- 4 -->
+                <div id="cart">
                     <router-link to="/basket"><img src="@/assets/Images/caddy_blanc.png" alt="lo" id="cart"></router-link>
+                    <div id="notif" v-if="notEmpty">
+                        {{cart}}
+                    </div>
                 </div>
 
             </div>
@@ -56,6 +59,8 @@ export default {
     data() {
         return {
             toggleIndex: false,
+            notEmpty : false,
+            cart : window.$cookies.get("cart")
         };
     },
 
@@ -67,8 +72,19 @@ export default {
         scrollup() {
             const btnDrop = document.querySelector(".dropdown");
             btnDrop.style.height = `67px`;
+        },
+        isEmpty(){
+            if (parseInt(window.$cookies.get("cart")) > 0) {
+                this.notEmpty = true;
+                this.cart = window.$cookies.get("cart");
+            } else {
+                this.notEmpty = false;
+            }
         }
     },
+    mounted(){
+        setInterval(this.isEmpty, 200);
+    }
 
 }
 
@@ -99,6 +115,18 @@ header {
     justify-content: space-between;
     padding-top: 12px;
     padding-right: 20px;
+}
+
+#notif{
+    background-color: #f1f1f1;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    border-radius: 50%;
+    padding: 2px 6px 2px 6px; 
+    font-size: small;
+    background-color: rgb(201, 28, 28);
+    color: white;
 }
 
 /* nav */
