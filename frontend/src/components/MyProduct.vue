@@ -19,7 +19,7 @@
       </div>
 
       <div id="buttondiv">
-        <b><button @click="goToDestails()">Details</button></b>
+        <b><button @click="goToDetails()">Details</button></b>
       </div>
 
     </div>
@@ -56,9 +56,9 @@ export default {
         console.log(error);
       }
     },
-    // goToDestails() {
-    //   this.$router.push(`/product/${this.id}`);
-    // }
+    goToDetails() {
+      this.$router.push(`/product/${this.id}`);
+    }
   },
   beforeMount() {
     this.getProduct();

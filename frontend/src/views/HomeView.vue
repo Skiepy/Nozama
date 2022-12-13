@@ -9,8 +9,22 @@
     <div v-if="(nbProducts > 0)">
       <div id="size">
 
-        <div v-for="product in products" id="divProduct">
-          <MyProduct :id="product.id_product"></MyProduct>  
+        <div v-for="product in products.slice(0, 3)" id="divProduct">
+          <MyProduct :id="product.id_product"></MyProduct>
+        </div>
+
+      </div>
+      <div id="size">
+
+        <div v-for="product in products.slice(3, 6)" id="divProduct">
+          <MyProduct :id="product.id_product"></MyProduct>
+        </div>
+
+      </div>
+      <div id="size">
+
+        <div v-for="product in products.slice(6, 9)" id="divProduct">
+          <MyProduct :id="product.id_product"></MyProduct>
         </div>
 
       </div>
