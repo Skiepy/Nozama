@@ -16,16 +16,16 @@
         <div class="product-display">
           <div class="product-container">
             <img :src="getImgPath()" alt="" class="img">
-            <!-- <img src="@/assets/Images/crocsviolet.webp" alt="" class="img"> -->
             <div class="product-info">
               <h1>{{ product }}</h1>
               <p>In Stock !</p>
               <p>{{ description }}</p>
               <p>{{ price }}$</p>
-              <button class="button" :class="{ disabledButton: !inStock }" @click="addToCart" v-if="!inCart">Add to
+              <button class="button" @click="addToCart" v-if="!inCart">Add to
                 Cart</button>
-              <button class="button" :class="{ disabledButton: !inStock }" @click="checkout" v-if="inCart">Go to
+              <button class="button" @click="checkout" v-if="inCart">Go to
                 checkout</button>
+              <button class="button" @click="continueShop" v-if="inCart">Continue Shopping</button>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default {
       try {
         await axios.post(`http://localhost:5000/basket`, {
           id_product: this.$route.params.id,
-          sessionId_basket : window.$cookies.get("sessionId")
+          sessionId_basket: window.$cookies.get("sessionId")
         });
         if (window.$cookies.get("cart") == null) {
           window.$cookies.set("cart", 1);
@@ -88,6 +88,9 @@ export default {
     },
     checkout() {
       this.$router.push("/basket");
+    },
+    continueShop(){
+      this.$router.push("/");
     }
   },
   beforeMount() {
