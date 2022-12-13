@@ -123,4 +123,8 @@ export default {
   height: 27%;
   width: 25%;
 }
+.vl {
+  border-left: 6px solid rgba(14, 18, 14, 0.3);
+  height: 50px;
+}
 </style>
