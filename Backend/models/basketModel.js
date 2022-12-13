@@ -60,3 +60,14 @@ export const deleteBasketById = (id, result) => {
         }
     });
 }
+
+export const deleteBasketBySessionId = (id, result) => {
+    db.query("DELETE FROM dbamazon.basket WHERE sessionId_basket = ?", [id], (err, results) => {
+        if (err) {
+            console.log(err);
+            result(err, null);
+        } else {
+            result(null, results);
+        }
+    });
+}

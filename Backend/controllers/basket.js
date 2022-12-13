@@ -1,5 +1,5 @@
 // Import function from Basket Model
-import { getBasket, getBasketById, insertBasket, updateBasketById, deleteBasketById } from "../models/basketModel.js";
+import { getBasket, getBasketById, insertBasket, updateBasketById, deleteBasketById, deleteBasketBySessionId } from "../models/basketModel.js";
 
 // Get All Basket
 export const showBasket = (req, res) => {
@@ -52,6 +52,17 @@ export const updateBasket = (req, res) => {
 export const deleteBasket = (req, res) => {
     const id = req.params.id;
     deleteBasketById(id, (err, results) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(results);
+        }
+    });
+}
+
+export const deleteBasketSession = (req, res) => {
+    const id = req.params.id;
+    deleteBasketBySessionId(id, (err, results) => {
         if (err) {
             res.send(err);
         } else {

@@ -3,7 +3,7 @@ import express from "express";
 
 // import function from controller
 import { showProducts, showProductById, createProduct, updateProduct, deleteProduct } from "../controllers/product.js";
-import { showBasket, showBasketById, createBasket, updateBasket, deleteBasket } from "../controllers/basket.js";
+import { showBasket, showBasketById, createBasket, updateBasket, deleteBasket, deleteBasketSession } from "../controllers/basket.js";
 import { showCheckout, showCheckoutById, createCheckout, updateCheckout, deleteCheckout } from "../controllers/checkout.js";
 
 // init express router
@@ -41,6 +41,7 @@ router.put('/basket/:id', updateBasket);
 
 // Delete Basket
 router.delete('/basket/:id', deleteBasket);
+router.delete('/basketSession/:id', deleteBasketSession)
 
 
 // Checkout
