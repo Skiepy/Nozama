@@ -1,17 +1,27 @@
 <template>
-  <div class="cont">
-    <div class="all">
-      <img :src="getImgPath()" alt="" class="img">
-      <div class="allprod">
-        <div class="text">
-          <div class="product2">
-            {{ this.productName }}
-          </div>
-          <div class="product">
-            {{ this.productPrice }} $
-          </div>
+
+  <div class="all">
+
+    <img :src="getImgPath()" alt="" class="img">
+
+    <div class="allprod">
+
+      <div id="text">
+
+        <div class="productPrice">
+          ${{ this.productPrice }}
         </div>
+
+        <div class="productName">
+          <b>{{ this.productName }}</b>
+        </div>
+
       </div>
+
+      <div id="buttondiv">
+        <b><button @click="goToDestails()">Details</button></b>
+      </div>
+
     </div>
   </div>
 </template>
@@ -26,7 +36,8 @@ export default {
     return {
       productName: "",
       productPrice: "",
-      path: ""
+      path: "",
+      // id: ""
     }
   },
   methods: {
@@ -35,7 +46,8 @@ export default {
       this.productName = res.data.name_product;
       this.productPrice = res.data.price_product;
       this.path = res.data.image_product;
-      
+      this.id = res.data.image_product;
+
     },
     getImgPath() {
       try {
@@ -43,7 +55,10 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
+    },
+    // goToDestails() {
+    //   this.$router.push(`/product/${this.id}`);
+    // }
   },
   beforeMount() {
     this.getProduct();
@@ -54,62 +69,46 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap%27');
 
-.cont {
-  text-align: center;
-}
-
 .all {
-  width: 25%;
-  height: 80%;
-  border-radius: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  padding: 20px;
   background-color: white;
 }
 
-.text {
-  margin-top: 2%;
-  margin-bottom: 5%;
-  margin-left: 2%;
-  margin-right: 5%;
+#text {
+  text-align: left;
+  margin: 5px;
+  text-align: left;
 }
 
-.product {
+.productPrice {
   font-family: 'Rubik', sans-serif;
-  color: #fc9a00;
-  font-weight: bold;
-  text-align: right;
-  margin-top: 5%;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-bottom: 2%;
-  align-items: baseline;
 }
 
-.product2 {
+.productName {
   font-family: 'Rubik', sans-serif;
-  text-transform: uppercase;
-  color: #221F1F;
-  /* text-align: left; */
-  float: left;
-  align-items: baseline;
-  margin-bottom: 2%;
-}
-
-.product1 {
-  font-family: 'Rubik', sans-serif;
-  color: #fc9a00;
-  float: right;
-  align-items: right;
+  font-size: 13px;
 }
 
 .img {
-  width: 90%;
-  margin-left: 4%;
-  position: relative;
-  z-index: 1;
-  float: left;
-  display: block;
+  width: 150px;
+}
+
+button {
+  color : #232F3E;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+#buttondiv {
+  text-align: left;
+}
+
+button:hover {
+  color: #ffb237;
 }
 </style>
