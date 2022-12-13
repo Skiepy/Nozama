@@ -15,14 +15,12 @@
             <th>Quantity</th>
             <th>Delete</th>
           </tr>
-          <div v-for="product in myProducts" :key="product.id_product">
-            <tr>
+            <tr v-for="product in myProducts" :key="product.id_product">
               <td>{{ product.name_product }}</td>
               <td>{{ product.price_product }}</td>
               <td><input v-model.number="product.quantity" type="number" id="quantity" min="1"></td>
               <td><button @click="deleteProduct(product.id_product)">Delete</button></td>
             </tr>
-          </div>
         </table>
         <div id="buttons">
           <button id="basket" style="background-color: rgba(34, 255, 0, 0.405)" @click="goToCheckout()">Go To
@@ -208,6 +206,7 @@ button {
 }
 
 #buttons {
+  padding-top: 40px;
   padding-bottom: 100px;
 }
 
