@@ -3,7 +3,8 @@
 
   <div id="top">
     <div v-if="(nbProducts == 0)" id="emptyBasket">
-      Items added to the basket will be available here.
+      <img src="@/assets/Images/emptyCart.png" id="emptyBasketImage">
+      <h1>Your cart is empty</h1>
     </div>
     <div v-else>
       <h1> Your Basket</h1>
@@ -124,7 +125,13 @@ export default {
 }
 
 #emptyBasket {
-  padding-bottom: 700px;
+  padding-bottom: 50px;
+}
+
+#emptyBasketImage{
+  padding: 100px;
+  width: 40%;
+  height: 40%;
 }
 
 ul {
