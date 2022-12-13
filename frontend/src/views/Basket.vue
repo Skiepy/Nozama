@@ -19,7 +19,7 @@
             <tr v-for="product in myProducts" :key="product.id_product">
               <td>{{ product.name_product }}</td>
               <td>{{ product.price_product }}</td>
-              <td><input v-model.number="product.quantity" type="number" id="quantity" min="1"></td>
+              <td><input v-model.number="product.quantity" type="number" id="quantity" min="1" max="20"></td>
               <td><button @click="deleteProduct(product.id_product)">Delete</button></td>
             </tr>
         </table>
