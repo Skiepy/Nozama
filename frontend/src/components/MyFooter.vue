@@ -7,13 +7,13 @@
                     <h3>Our Products</h3>
                     <ul>
                         <li>
-                            <a href="#">Classic</a>
+                            <RouterLink class="link" :to="{ name: 'product', params: { id: 16 } }">Classics</RouterLink>
                         </li>
                         <li>
-                            <a href="#">Slippers</a>
+                            <RouterLink class="link" :to="{ name: 'product', params: { id: 18 } }">Slippers</RouterLink>
                         </li>
                         <li>
-                            <a href="#">Fancy</a>
+                            <RouterLink class="link" :to="{ name: 'product', params: { id: 23 } }">Fancy</RouterLink>
                         </li>
                     </ul>
                 </div>
