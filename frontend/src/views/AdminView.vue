@@ -14,10 +14,8 @@
         <label for="Price">Price (EUR):</label><br>
         <input type="text" id="Price" v-model="Price"><br>
 
-        <div id="picture"></div>
-
-        <label>Image</label>
-        <input type="file" multiple @change="uploadFile" />
+        <label for="Image">Image :</label><br>
+        <input type="text" id="Image" v-model="Image"><br>
 
         <input type="submit" value="Submit" @click="createNewProduct()">
 
@@ -37,9 +35,6 @@ export default {
         }
     },
     methods: {
-        uploadFile(e) {
-            this.File = e.target.files;
-        },
         async createNewProduct() {
             try {
                 await axios.post("http://localhost:5000/products", {
