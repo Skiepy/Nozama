@@ -9,25 +9,21 @@
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Cart({{ cart }})
-        <img src="@/assets/Images/caddy.webp" alt="" class="cad">
-      </div>
-      <div class="cadre">
-        <div class="product-display">
-          <div class="product-container">
-            <img :src="getImgPath()" alt="" class="img">
-            <div class="product-info">
-              <h1>{{ product }}</h1>
-              <p>In Stock !</p>
-              <p>{{ description }}</p>
-              <p>{{ price }}$</p>
-              <button class="button" @click="addToCart" v-if="!inCart">Add to
-                Cart</button>
-              <button class="button" @click="checkout" v-if="inCart">Go to
-                checkout</button>
-              <button class="button" @click="continueShop" v-if="inCart">Continue Shopping</button>
-            </div>
-          </div>
+      <div id="space"></div>
+
+      <div class="product-container" style=" width:100%; height : 400px;">
+        <img :src="getImgPath()" alt="" class="img">
+        <div class="product-info">
+          <h1>{{ product }}</h1>
+          <p>In Stock !</p>
+          <p>{{ description }}</p>
+          <p>{{ price }}$</p>
+          <button class="button" @click="addToCart" v-if="!inCart">Add to
+            Cart</button>
+          <button class="button" @click="checkout" v-if="inCart">Go to
+            checkout</button>
+          <button class="button" @click="continueShop" v-if="inCart">Continue Shopping</button>
+
         </div>
       </div>
     </div>
@@ -89,7 +85,7 @@ export default {
     checkout() {
       this.$router.push("/basket");
     },
-    continueShop(){
+    continueShop() {
       this.$router.push("/");
     }
   },
@@ -115,12 +111,12 @@ export default {
   padding-top: 10px;
   text-align: left;
   align-items: baseline;
-  margin-left: 60%;
+  margin-left: 55%;
 }
 
 .img {
   width: 30%;
-  margin-left: 10%;
+  margin-left: 15%;
   position: relative;
   z-index: 1;
   float: left;
@@ -152,35 +148,13 @@ export default {
 
 .product-container {
   box-sizing: border-box;
-  margin-bottom: 100px;
-  margin-left: 20px;
-  padding-bottom: 300px;
+  margin: 150px 0px 112px 0px;
   height: 50px;
   background-color: white;
   color: #1E3551;
 }
 
-.list {
-  /* padding-top: 20px; */
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #fc9a00;
-  text-align: left;
-  align-items: baseline;
-}
 
-.cadre {
-  position: relative;
-  background: #f4f4f1;
-  width: 100%;
-  height: 120%;
-  margin: 0 auto 100px;
-  /* padding: 45px; */
-  /* text-align: center; */
-  border-radius: 1%;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  margin-top: 5%;
-  margin-right: 5px;
-  /* margin-left: 5px; */
-  box-sizing: border-box;
-}
+
+
 </style>
