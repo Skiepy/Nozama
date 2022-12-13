@@ -7,10 +7,10 @@
                     <h3>Our Products</h3>
                     <ul>
                         <li>
-                            <a href="#">Slippers</a>
+                            <a href="#">Classic</a>
                         </li>
                         <li>
-                            <a href="#">Classic</a>
+                            <a href="#">Slippers</a>
                         </li>
                         <li>
                             <a href="#">Fancy</a>

@@ -51,7 +51,6 @@
   </div>
 
   <div id="buttons">
-    <button id="basket" style="background-color: rgba(255, 0, 0, 0.405)">Clear basket</button>
     <button id="basket" style="background-color: rgba(34, 255, 0, 0.405)">Purchase items</button>
   </div>
 
