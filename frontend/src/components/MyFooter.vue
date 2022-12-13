@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="element">
-                    <img src="@/assets/Images/nozama.png" alt="lo" id="img">
+                    <router-link to="/"><img src="@/assets/Images/nozama.png" alt="lo" id="img"></router-link>
                 </div>
 
             </div>
