@@ -1,5 +1,6 @@
 <template>
-  <MyHeader></MyHeader> 
+  <MyHeader></MyHeader>
+
   <head>
     <title class="title">Vue Mastery</title>
   </head>
@@ -14,22 +15,17 @@
       <div class="cadre">
         <div class="product-display">
           <div class="product-container">
-            <img src="@/assets/Images/crocs_clog/clog_jaune.png" alt="" class="img">
+            <img :src="getImgPath()" alt="" class="img">
             <!-- <img src="@/assets/Images/crocsviolet.webp" alt="" class="img"> -->
             <div class="product-info">
               <h1>{{ product }}</h1>
-              <p v-if="onSale">{{ saleMessage }}</p>
-              <p v-if="inStock">In Stock</p>
-              <p v-else>Out of Stock</p>
-              <ul>
-                <li v-for="detail in details" class="list">{{ detail }}</li>
-              </ul>
-              <div v-for="(variant, index) in variants" :key="variant.id" @mouseover="updateVariant(index)"
-                class="color-circle" :style="{ backgroundColor: variant.color }">
-              </div>
-              <button class="button" :class="{ disabledButton: !inStock }" :disabled="!inStock"
-                v-on:click="addToCart">Add to Cart</button>
-              <button class="button" @click="removeFromCart">Remove Item</button>
+              <p>In Stock !</p>
+              <p>{{ description }}</p>
+              <p>{{ price }}$</p>
+              <button class="button" :class="{ disabledButton: !inStock }" @click="addToCart" v-if="!inCart">Add to
+                Cart</button>
+              <button class="button" :class="{ disabledButton: !inStock }" @click="checkout" v-if="inCart">Go to
+                checkout</button>
             </div>
           </div>
         </div>
@@ -38,7 +34,68 @@
   </body>
   <MyFooter></MyFooter>
 </template>
-  
+
+<script>
+import MyFooter from '@/components/MyFooter.vue';
+import MyHeader from '@/components/MyHeader.vue';
+import axios from 'axios';
+export default {
+  components: {
+    MyHeader,
+    MyFooter,
+  },
+  data() {
+    return {
+      cart: 0,
+      product: '',
+      brand: 'Crocs',
+      description: "",
+      price: "",
+      path: "",
+      inCart: false
+    }
+  },
+  methods: {
+    async getProduct() {
+      const res = await axios.get(`http://localhost:5000/products/${this.$route.params.id}`);
+      this.product = res.data.name_product;
+      this.description = res.data.description_product;
+      this.price = res.data.price_product;
+      this.path = res.data.image_product;
+    },
+    getImgPath() {
+      try {
+        return require(`@/assets/Images/${this.path}.png`);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async addToCart() {
+      try {
+        await axios.post(`http://localhost:5000/basket`, {
+          id_product: this.$route.params.id,
+          sessionId_basket : window.$cookies.get("sessionId")
+        });
+        if (window.$cookies.get("cart") == null) {
+          window.$cookies.set("cart", 1);
+        } else {
+          window.$cookies.set("cart", (parseInt(window.$cookies.get("cart")) + 1));
+        }
+        this.inCart = true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    checkout() {
+      this.$router.push("/basket");
+    }
+  },
+  beforeMount() {
+    this.getProduct();
+  }
+}
+</script>
+
 <style scoped>
 .cad {
   width: 15px;
@@ -99,6 +156,7 @@
   background-color: white;
   color: #1E3551;
 }
+
 .list {
   /* padding-top: 20px; */
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -106,6 +164,7 @@
   text-align: left;
   align-items: baseline;
 }
+
 .cadre {
   position: relative;
   background: #f4f4f1;
@@ -122,69 +181,3 @@
   box-sizing: border-box;
 }
 </style>
-
-<script>
-import MyFooter from '@/components/MyFooter.vue';
-import MyHeader from '@/components/MyHeader.vue';
-export default {
-  components: {
-    MyHeader,
-    MyFooter,
-  },
-  props: [
-    'id'
-  ],
-  data() {
-    return {
-      cart: 0,
-      product: 'CROCS Classical',
-      brand: 'Vue Mastery',
-      selectedVariant: 0,
-      inStock: true,
-      details: ['50% cotton', '30% wool', '20% polyester'],
-      variants: [
-        { id: 2234, color: 'green', image: './assets/images/socks_blue.jpg', quantity: 50 },
-        { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 },
-      ],
-      onSale: true
-    }
-  },
-  methods: {
-    addToCart() {
-      this.cart += 1
-    },
-    // solution
-    removeFromCart() {
-      if (this.cart >= 1) {
-        this.cart -= 1
-      }
-    },
-    updateVariant(index) {
-      this.selectedVariant = index
-    },
-    // solution
-    updateImage(variantImage) {
-      this.image = variantImage
-    },
-    computed: {
-      title() {
-        return this.brand + ' ' + this.product
-      },
-      image() {
-        return this.variants[this.selectedVariant].image
-      },
-      inStock() {
-        return this.variants[this.selectedVariant].quantity
-      },
-      // solution
-      saleMessage() {
-        if (this.onSale) {
-          return this.brand + ' ' + this.product + ' is on sale.'
-        }
-        return ''
-      }
-      // solution
-    }
-  }
-}
-</script>
