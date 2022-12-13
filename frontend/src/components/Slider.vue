@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="background-color : white">
         <div v-for="i in [currentIndex]" :key="i">
             <img :src="currentImg" />
         </div>
