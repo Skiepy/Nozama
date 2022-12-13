@@ -69,6 +69,7 @@
     } */
     
     template{
+      background-color: #f4f4f1;
       text-align : center;
     }
     

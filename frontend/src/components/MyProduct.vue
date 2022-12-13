@@ -4,9 +4,9 @@
     <img src="@/assets/Images/crocs_clog/clog_bleu.png" alt="" class="img">
     <div class="allprod">
         <div class="text">
-    <div class="product">
+    <!-- <div class="product">
     Product: 
-</div><div class="product2">
+</div>--><div class="product2">
     {{this.productName}}
 </div>
     <!-- <div class="product">
@@ -66,28 +66,31 @@ export default {
   margin-left: 2%;
   margin-right: 5%;
 }
-.product{
+/* .product{
   font-family: 'Rubik', sans-serif;
   color: #221F1F;
   font-weight: bold;
   text-align: left;
+  margin-top: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
   margin-bottom: 2%;
   align-items: baseline;
-}
-
+} */
 .product2{
   font-family: 'Rubik', sans-serif;
+  text-transform: uppercase;
   color: #221F1F;
   /* text-align: left; */
-  float: right;
+  float: left;
   align-items: baseline;
   margin-bottom: 2%;
 }
 .product1{
   font-family: 'Rubik', sans-serif;
-    color: #fc9a00;
-    float: right;
-    align-items: right;
+  color: #fc9a00;
+  float: right;
+  align-items: right;
 }
 .img{
   width: 90%;
