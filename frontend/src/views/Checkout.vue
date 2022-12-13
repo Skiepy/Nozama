@@ -245,6 +245,7 @@ export default {
                     city_checkout: this.city,
                     postalCode_checkout: this.postalCode
                 });
+                await axios.delete(`http://localhost:5000/basketSession/${window.$cookies.get("sessionId")}`);
             } catch (error) {
                 console.log(error);
             }
