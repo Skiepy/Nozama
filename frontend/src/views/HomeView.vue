@@ -98,7 +98,10 @@ export default {
   data() {
     return {
       nbProducts: 0,
-      products: []
+      products: [],
+      classics : "classicsUnique",
+      slippers : "slippersUnique",
+      fancy : "fancyUnique",
     };
   },
   methods: {

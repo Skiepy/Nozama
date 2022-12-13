@@ -13,13 +13,13 @@
                 <div class="bloc-links" @mouseenter="scrolldown" @mouseleave="scrollup">
                     <ul>
                         <li>
-                            <a href="#">Classic</a>
+                            <RouterLink class="link" :to="{ name: 'product', params: { id: 16 } }">Classics</RouterLink>
                         </li>
                         <li>
-                            <a href="#">Slippers</a>
+                            <RouterLink class="link" :to="{ name: 'product', params: { id: 18 } }">Slippers</RouterLink>
                         </li>
                         <li>
-                            <a href="#">Fancy</a>
+                            <RouterLink class="link" :to="{ name: 'product', params: { id: 23 } }">Fancy</RouterLink>
                         </li>
                     </ul>
                 </div>
@@ -39,9 +39,10 @@
                 </div>
 
                 <div id="cart">
-                    <router-link to="/basket"><img src="@/assets/Images/caddy_blanc.png" alt="lo" id="cart"></router-link>
+                    <router-link to="/basket"><img src="@/assets/Images/caddy_blanc.png" alt="lo"
+                            id="cart"></router-link>
                     <div id="notif" v-if="notEmpty">
-                        {{cart}}
+                        {{ cart }}
                     </div>
                 </div>
 
@@ -59,8 +60,8 @@ export default {
     data() {
         return {
             toggleIndex: false,
-            notEmpty : false,
-            cart : window.$cookies.get("cart")
+            notEmpty: false,
+            cart: window.$cookies.get("cart")
         };
     },
 
@@ -73,7 +74,7 @@ export default {
             const btnDrop = document.querySelector(".dropdown");
             btnDrop.style.height = `67px`;
         },
-        isEmpty(){
+        isEmpty() {
             if (parseInt(window.$cookies.get("cart")) > 0) {
                 this.notEmpty = true;
                 this.cart = window.$cookies.get("cart");
@@ -82,7 +83,7 @@ export default {
             }
         }
     },
-    mounted(){
+    mounted() {
         setInterval(this.isEmpty, 200);
     }
 
@@ -117,13 +118,13 @@ header {
     padding-right: 20px;
 }
 
-#notif{
+#notif {
     background-color: #f1f1f1;
     position: absolute;
     top: 10px;
     right: 20px;
     border-radius: 50%;
-    padding: 2px 6px 2px 6px; 
+    padding: 2px 6px 2px 6px;
     font-size: small;
     background-color: rgb(201, 28, 28);
     color: white;
@@ -196,7 +197,7 @@ header {
 
 .bloc-links li:last-child {
     padding-bottom: 20px;
-    border-radius : 20px;
+    border-radius: 20px;
 }
 
 /* logo */

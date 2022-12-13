@@ -128,7 +128,8 @@ export default {
   font-size: 5px;
   text-transform: uppercase;
   background-color: #221F1F;
-  width: 22%;
+  width: 30%;
+  height: 30%;
   border: 3%;
   padding: 15px;
   color: white;
