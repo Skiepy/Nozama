@@ -40,9 +40,9 @@
     <div class="slides">
       <Slider></Slider>
     </div>
+    
     <hr style="height: 2px; color:  #221F1F; background-color:  #221F1F; width: 50%; border: none;">
-    <!-- <hr width="2250px" height="2000px"> -->
-    <div class="text">
+    <div class="text" style="background-color : white">
       <div class="container">
         <div class="contenant">
           <img src="@/assets/Images/homepage/chaussonscrocs.webp" alt="" class="img">
@@ -58,17 +58,6 @@
         </div>
       </div>
     </div>
-
-    <div class="reveal fade-bottom" id="NewArrival">
-      <img src="@/assets/Images/homepage/crocscarrots.webp" alt="" class="imgnewarr">
-      <div class="TextNewArrival">
-        <p class="BigText" style="text-align: justify">NEW ARRIVALS</p>
-        <p class="MiddleText">Crocs footwear collection.
-          Comfortable clogs, casual flip flops, dressy sandals and work shoes for on-the-job comfort, and much more!</p>
-      </div>
-    </div>
-
-
     <hr style="height: 2px; color:  #221F1F; background-color:  #221F1F; width: 100%; border: none; margin-bottom: 5%;">
     <div class="container1">
       <div class="contenant1">
@@ -154,68 +143,10 @@ export default {
 }
 
 
+
+
 #divProduct {
   margin: 10px;
-}
-
-#NewArrival {
-  margin-bottom: 100px;
-  margin-left: 20px;
-  padding: 60px;
-  height: 500px;
-  background-color: white;
-  color: white;
-}
-
-.TextNewArrival {
-  margin-top: 20px;
-  margin-right: 100px;
-  margin-left: 450px;
-}
-
-.MiddleText {
-  font-family: 'Rubik', sans-serif;
-  text-align: justify;
-  color: #221F1F;
-  font-size: 25px;
-}
-
-.BigText {
-  padding-top: 7%;
-  font-family: 'Rubik', sans-serif;
-  color: #221F1F;
-  font-size: 50px;
-}
-
-.imgnewarr {
-  width: 400px;
-  float: left;
-  display: block;
-}
-
-.reveal {
-  position: relative;
-  opacity: 0;
-}
-
-.reveal.active {
-  opacity: 1;
-}
-
-.active.fade-bottom {
-  animation: fade-bottom 1s ease-in;
-}
-
-@keyframes fade-bottom {
-  0% {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .contenant {
@@ -261,6 +192,7 @@ export default {
 }
 
 .container1 {
+  margin: 5%;
   column-count: 4;
 }
 
