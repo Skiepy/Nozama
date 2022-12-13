@@ -28,7 +28,7 @@
             <div id="headerbar">
 
                 <div id="logo"> <!-- 2 -->
-                    <router-link to="/basket"><img src="@/assets/Images/nozama.png" alt="lo" id="logo"></router-link>
+                    <router-link to="/"><img src="@/assets/Images/nozama.png" alt="lo" id="logo"></router-link>
                 </div>
 
                 <div id="searchbar"> <!-- 3 -->
@@ -39,7 +39,7 @@
                 </div>
 
                 <div id="cart"> <!-- 4 -->
-                    <img src="@/assets/Images/caddy_blanc.png" alt="lo" id="cart">
+                    <router-link to="/basket"><img src="@/assets/Images/caddy_blanc.png" alt="lo" id="cart"></router-link>
                 </div>
 
             </div>

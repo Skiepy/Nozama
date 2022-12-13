@@ -16,7 +16,6 @@
   <div id="divtable">
     <table>
       <tr>
-        <th>#</th>
         <th>Product</th>
         <th>Price</th>
         <th>Quantity</th>
@@ -24,7 +23,6 @@
       </tr>
 
       <tr>
-        <td>{{ number }}</td>
         <td>{{ product }}</td>
         <td>{{ price }}</td>
         <td><input v-model.number="quantity" type="number" id="quantity" min="1" ></td>
@@ -32,7 +30,6 @@
       </tr>
 
       <tr>
-        <td>{{ number }}</td>
         <td>{{ product }}</td>
         <td>{{ price }}</td>
         <td><input v-model.number="quantity" type="number" id="quantity" min="1" ></td>
@@ -40,7 +37,6 @@
       </tr>
 
       <tr>
-        <td>{{ number }}</td>
         <td>{{ product }}</td>
         <td>{{ price }}</td>
         <td><input v-model.number="quantity" type="number" id="quantity" min="1" ></td>
@@ -51,7 +47,6 @@
   </div>
 
   <div id="buttons">
-    <button id="basket" style="background-color: rgba(255, 0, 0, 0.405)">Clear basket</button>
     <button id="basket" style="background-color: rgba(34, 255, 0, 0.405)">Purchase items</button>
   </div>
 
@@ -68,7 +63,6 @@ export default {
   name: "Basket",
   data() {
     return {
-      number: 1,
       product: "Crocs-example",
       price: "$10",
       quantity: 5,
@@ -135,8 +129,8 @@ ul {
 
 /* table */
 #divtable {
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 25%;
+  padding-right: 25%;
   padding-bottom: 40px;
 }
 

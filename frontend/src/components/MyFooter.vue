@@ -7,10 +7,10 @@
                     <h3>Our Products</h3>
                     <ul>
                         <li>
-                            <a href="#">Slippers</a>
+                            <a href="#">Classic</a>
                         </li>
                         <li>
-                            <a href="#">Classic</a>
+                            <a href="#">Slippers</a>
                         </li>
                         <li>
                             <a href="#">Fancy</a>
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="element">
-                    <img src="@/assets/Images/nozama.png" alt="lo" id="img">
+                    <router-link to="/"><img src="@/assets/Images/nozama.png" alt="lo" id="img"></router-link>
                 </div>
 
             </div>
