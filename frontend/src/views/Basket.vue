@@ -2,54 +2,35 @@
   <MyHeader></MyHeader>
 
   <div id="top">
-    <div v-if="(nbProducts == 0)">
-      No products available, we apologize for the inconvenience.
+    <div v-if="(nbProducts == 0)" id="emptyBasket">
+      Items added to the basket will be available here.
     </div>
     <div v-else>
-      <div v-for="product in myProducts">
-        This item {{ product.id_product }} is in the basket.
+      <h1> Your Basket</h1>
+      <div id="divtable">
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Delete</th>
+          </tr>
+          <div v-for="product in myProducts" :key="product.id_product">
+            <tr>
+              <td>{{ product.name_product }}</td>
+              <td>{{ product.price_product }}</td>
+              <td><input v-model.number="product.quantity" type="number" id="quantity" min="1"></td>
+              <td><button @click="deleteProduct(product.id_product)">Delete</button></td>
+            </tr>
+          </div>
+        </table>
+        <div id="buttons">
+          <button id="basket" style="background-color: rgba(34, 255, 0, 0.405)" @click="goToCheckout()">Go To
+            Payment</button>
+        </div>
       </div>
     </div>
   </div>
-
-  <h1> Your Basket</h1>
-  <div id="divtable">
-    <table>
-      <tr>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Delete</th>
-      </tr>
-
-      <tr>
-        <td>{{ product }}</td>
-        <td>{{ price }}</td>
-        <td><input v-model.number="quantity" type="number" id="quantity" min="1" ></td>
-        <td><button>Delete</button></td>
-      </tr>
-
-      <tr>
-        <td>{{ product }}</td>
-        <td>{{ price }}</td>
-        <td><input v-model.number="quantity" type="number" id="quantity" min="1" ></td>
-        <td><button>Delete</button></td>
-      </tr>
-
-      <tr>
-        <td>{{ product }}</td>
-        <td>{{ price }}</td>
-        <td><input v-model.number="quantity" type="number" id="quantity" min="1" ></td>
-        <td><button>Delete</button></td>
-      </tr>
-
-    </table>
-  </div>
-
-  <div id="buttons">
-    <button id="basket" style="background-color: rgba(34, 255, 0, 0.405)">Purchase items</button>
-  </div>
-
 
   <MyFooter></MyFooter>
 </template>
@@ -63,33 +44,72 @@ export default {
   name: "Basket",
   data() {
     return {
-      product: "Crocs-example",
-      price: "$10",
-      quantity: 5,
-
+      quantity: 1,
       nbProducts: 0,
-      products: [],
-      myProducts: []
+      basket: [],
+      myBasket: [],
+      myProducts: [],
+      toDelete: []
     };
   },
   methods: {
     async getSessionProducts() {
       try {
         const response = await axios.get(`http://localhost:5000/basket`);
-        this.products = response.data;
+        this.basket = response.data;
         let cpt = 0;
-        for (let index = 0; index < this.products.length; index++) {
-          if (this.products[index].sessionId_basket == window.$cookies.get("sessionId")) {
-            this.myProducts[cpt] = this.products[index];
+        for (let index = 0; index < this.basket.length; index++) {
+          if (this.basket[index].sessionId_basket == window.$cookies.get("sessionId")) {
+            this.myBasket[cpt] = this.basket[index];
             cpt++;
           }
         }
-        this.nbProducts = this.myProducts.length;
+        this.nbProducts = this.myBasket.length;
+        this.getProducts();
       }
       catch (error) {
         console.log(error);
       }
     },
+    async getProducts() {
+      try {
+        for (let i = 0; i < this.myBasket.length; i++) {
+          const response = await axios.get(`http://localhost:5000/products/${this.myBasket[i].id_product}`);
+          this.myProducts[i] = response.data;
+          this.myProducts[i].quantity = 1;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async deleteProduct(id) {
+      try {
+        let cpt = 0;
+        for (let index = 0; index < this.basket.length; index++) {
+          if (this.basket[index].sessionId_basket == window.$cookies.get("sessionId") && this.basket[index].id_product == id) {
+            this.toDelete[cpt] = this.basket[index];
+            await axios.delete(`http://localhost:5000/basket/${this.toDelete[cpt].id_basket}`);
+            cpt++;
+            break;
+          }
+        }
+        window.location.reload();
+      }
+      catch (error) {
+        console.log(error);
+      }
+    },
+    goToCheckout() {
+      try {
+        let total = 0;
+        for (let i = 0; i < this.myProducts.length; i++) {
+          total += (this.myProducts[i].price_product * this.myProducts[i].quantity);
+        }
+        this.$router.push(`/checkout/${total}`);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   },
   beforeMount() {
     this.getSessionProducts();
@@ -102,6 +122,10 @@ export default {
 #top {
   margin-top: 100px;
   margin-bottom: 40px;
+}
+
+#emptyBasket {
+  padding-bottom: 700px;
 }
 
 ul {
@@ -142,7 +166,8 @@ table {
   overflow: hidden;
 }
 
-td,th {
+td,
+th {
   padding: 15px 15px;
   text-align: center;
 }
@@ -175,19 +200,18 @@ button {
   background-color: transparent;
 }
 
-#basket{
-  margin : 10px;
-  padding : 10px;
-  border-radius : 5px;
-  box-shadow: 0 0px 5px rgba(64, 64, 64, 0.411); 
+#basket {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0px 5px rgba(64, 64, 64, 0.411);
 }
 
-#buttons{
-  padding-bottom : 100px;
+#buttons {
+  padding-bottom: 100px;
 }
 
-#quantity{
-  width : 30px;
+#quantity {
+  width: 30px;
 }
-
 </style>
