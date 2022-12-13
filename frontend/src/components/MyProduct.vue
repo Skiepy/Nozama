@@ -26,7 +26,7 @@ export default {
     return {
       productName: "",
       productPrice: "",
-      path: "crocs_clog/clog_orange"
+      path: ""
     }
   },
   methods: {
@@ -34,11 +34,15 @@ export default {
       const res = await axios.get(`http://localhost:5000/products/${this.id}`);
       this.productName = res.data.name_product;
       this.productPrice = res.data.price_product;
-      // this.path = res.data.image_product;
+      this.path = res.data.image_product;
       
     },
     getImgPath() {
-      return require(`@/assets/Images/${this.path}.png`);
+      try {
+        return require(`@/assets/Images/${this.path}.png`);
+      } catch (error) {
+        console.log(error);
+      }
     }
   },
   beforeMount() {
