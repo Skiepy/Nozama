@@ -58,6 +58,9 @@
                             </div>
                         </div>
                         <input class="btn btn-primary btn-block" @click.prevent="contactSubmit()" value="Continue">
+                        <input class="btn btn-primary btn-block" @click.prevent="goBack()" value="Go Back" style="background: #cc1029;
+                        border: solid #d41535 2px;
+                        text-decoration: none;">
                     </form>
                 </div>
             </div>
@@ -93,7 +96,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-block" @click.prevent="payWithCreditCard">Pay {{this.$route.params.id}}$</button>
+                        <button class="btn btn-primary btn-block" @click.prevent="payWithCreditCard">Pay
+                            {{ this.$route.params.id }}$</button>
                         <hr />
                         <div id="paypalButton"></div>
                     </form>
@@ -230,16 +234,16 @@ export default {
         async paymentSuccessful() {
             try {
                 await axios.post(`http://localhost:5000/checkout`, {
-                    amount_checkout : this.$route.params.id,
-                    status_checkout : "Payment completed",
-                    nonce_checkout : this.nonce,
-                    firstName_checkout : this.firstName,
-                    lastName_checkout : this.lastName,
-                    email_checkout : this.email,
-                    phoneNb_checkout : this.phoneNb,
-                    address_checkout : this.address,
-                    city_checkout : this.city,
-                    postalCode_checkout : this.postalCode
+                    amount_checkout: this.$route.params.id,
+                    status_checkout: "Payment completed",
+                    nonce_checkout: this.nonce,
+                    firstName_checkout: this.firstName,
+                    lastName_checkout: this.lastName,
+                    email_checkout: this.email,
+                    phoneNb_checkout: this.phoneNb,
+                    address_checkout: this.address,
+                    city_checkout: this.city,
+                    postalCode_checkout: this.postalCode
                 });
             } catch (error) {
                 console.log(error);
@@ -263,6 +267,11 @@ export default {
                 this.paymentForm = true;
                 this.initPayment();
             }
+        },
+        goBack() {
+            this.$router.replace("/basket").then(() => {
+                window.location.reload();
+            });
         }
     },
     beforeMount() {
@@ -270,7 +279,7 @@ export default {
         this.paymentForm = false;
     },
     watch: {
-        nonce : function (){
+        nonce: function () {
             this.paymentSuccessful();
         }
     }
