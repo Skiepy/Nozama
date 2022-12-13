@@ -16,11 +16,11 @@
     {{this.productDescription}}
 </div> -->
 <div class="product">
-    Price: 
+   {{this.productPrice}} $
 </div>
-<div class="product1">
+<!-- <div class="product1">
     {{this.productPrice}} $
-</div>
+</div> -->
 </div>
 </div>
 </div>
@@ -66,17 +66,17 @@ export default {
   margin-left: 2%;
   margin-right: 5%;
 }
-/* .product{
+.product{
   font-family: 'Rubik', sans-serif;
-  color: #221F1F;
+  color: #fc9a00;
   font-weight: bold;
-  text-align: left;
+  text-align: right;
   margin-top: 5%;
   margin-right: 5%;
   margin-left: 5%;
   margin-bottom: 2%;
   align-items: baseline;
-} */
+}
 .product2{
   font-family: 'Rubik', sans-serif;
   text-transform: uppercase;
