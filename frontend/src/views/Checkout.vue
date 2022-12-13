@@ -57,7 +57,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <button class="btn btn-primary btn-block" @click.prevent="contactSubmit()">Go to payment</button> -->
                         <input class="btn btn-primary btn-block" @click.prevent="contactSubmit()" value="Continue">
                     </form>
                 </div>
@@ -70,24 +69,14 @@
                     <div class="alert alert-success" v-if="nonce">
                         Payment successful !
                         <br>
-                        You will be redirected in a few seconds...
-                        <br>
-                        <button class="btn btn-primary btn-block" @click="paymentSuccessful()">Go back to the
-                            website</button>
+                        You'll be redirected shortly...
+                        <!-- <button class="btn btn-primary btn-block" @click="paymentSuccessful()">Go back to the
+                            website</button> -->
                     </div>
                     <div class="alert alert-danger" v-if="error">
                         {{ error }}
                     </div>
                     <form>
-                        <!-- <div class="form-group">
-                            <label for="amount">Amount</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                                <input type="number" id="amount" v-model="amount" class="form-control"
-                                    placeholder="Enter Amount">
-                            </div>
-                        </div>
-                        <hr /> -->
                         <div class="form-group">
                             <label>Credit Card Number</label>
                             <div id="creditCardNumber" class="form-control"></div>
@@ -104,8 +93,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-block" @click.prevent="payWithCreditCard">Pay with Credit
-                            Card</button>
+                        <button class="btn btn-primary btn-block" @click.prevent="payWithCreditCard">Pay {{this.$route.params.id}}$</button>
                         <hr />
                         <div id="paypalButton"></div>
                     </form>
@@ -118,13 +106,14 @@
 <script>
 import paypal from 'paypal-checkout';
 import braintree from 'braintree-web';
+import axios from 'axios';
 export default {
     data() {
         return {
             hostedFieldInstance: false,
             nonce: "",
             error: "",
-            amount: 10,
+            amount: this.$route.params.id,
             empty: false,
             contactForm: true,
             paymentForm: false,
@@ -233,10 +222,34 @@ export default {
                     console.log(err);
                 });
         },
-        paymentSuccessful() {
-            this.$router.push("/");
+        delay(n) {
+            return new Promise(function (resolve) {
+                setTimeout(resolve, n * 1000);
+            });
         },
-        async contactSubmit() {
+        async paymentSuccessful() {
+            try {
+                await axios.post(`http://localhost:5000/checkout`, {
+                    amount_checkout : this.$route.params.id,
+                    status_checkout : "Payment completed",
+                    nonce_checkout : this.nonce,
+                    firstName_checkout : this.firstName,
+                    lastName_checkout : this.lastName,
+                    email_checkout : this.email,
+                    phoneNb_checkout : this.phoneNb,
+                    address_checkout : this.address,
+                    city_checkout : this.city,
+                    postalCode_checkout : this.postalCode
+                });
+            } catch (error) {
+                console.log(error);
+            }
+            await this.delay(2);
+            this.$router.replace("/").then(() => {
+                window.location.reload();
+            });
+        },
+        contactSubmit() {
             if (this.firstName == ""
                 || this.lastName == ""
                 || this.email == ""
@@ -249,20 +262,17 @@ export default {
                 this.contactForm = false;
                 this.paymentForm = true;
                 this.initPayment();
-
-                // @TODO store in DB
             }
-        },
-        // createSessionId(){
-        //     if (window.$cookies.get("sessionId") == null) {
-        //         window.$cookies.set("sessionId", Date.now());
-        //     }
-        // }
+        }
     },
     beforeMount() {
         this.contactForm = true;
         this.paymentForm = false;
-        // this.createSessionId();
+    },
+    watch: {
+        nonce : function (){
+            this.paymentSuccessful();
+        }
     }
 }
 </script>
