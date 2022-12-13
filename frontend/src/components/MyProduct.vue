@@ -1,11 +1,11 @@
 <template>
 
+  <button @click="goToDetails()" id="buttondiv">
   <div class="all">
-
     <img :src="getImgPath()" alt="" class="img">
 
     <div class="allprod">
-
+      
       <div id="text">
 
         <div class="productPrice">
@@ -18,12 +18,10 @@
 
       </div>
 
-      <div id="buttondiv">
-        <b><button @click="goToDetails()">Details</button></b>
-      </div>
-
     </div>
   </div>
+  </button>
+  
 </template>
 
 <script>
@@ -70,7 +68,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap%27');
 
 .all {
-  width: 200px;
+  width: 250px;
   height: 200px;
   border-radius: 5px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

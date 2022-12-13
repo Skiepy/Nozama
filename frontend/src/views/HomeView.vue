@@ -5,29 +5,32 @@
   </div> -->
 
   <MyHeader></MyHeader>
+  <div id="space"></div>
   <div class="all">
     <div v-if="(nbProducts > 0)">
-      <div id="size">
 
+      <h1 style="text-align:left; padding-left : 185px">The classics</h1>
+      <div id="size" style="padding-left : 150px">
         <div v-for="product in products.slice(0, 3)" id="divProduct">
           <MyProduct :id="product.id_product"></MyProduct>
         </div>
 
       </div>
-      <div id="size">
 
+      <h1 style="text-align:right; padding-right : 185px">The Slippers</h1>
+      <div id="size" style="padding-right : 150px; justify-content: right;">
         <div v-for="product in products.slice(3, 6)" id="divProduct">
           <MyProduct :id="product.id_product"></MyProduct>
         </div>
-
       </div>
-      <div id="size">
 
+      <h1 style="text-align:left; padding-left : 185px">The Fancy</h1>
+      <div id="size" style="padding-left : 150px">
         <div v-for="product in products.slice(6, 9)" id="divProduct">
           <MyProduct :id="product.id_product"></MyProduct>
         </div>
-
       </div>
+      <div id="space"></div>
     </div>
 
     <div v-if="(nbProducts == 0)">
@@ -124,9 +127,15 @@ export default {
         console.log(error)
       }
     },
+    createSessionId() {
+      if (window.$cookies.get("sessionId") == null) {
+        window.$cookies.set("sessionId", Date.now());
+      }
+    },
   },
 
   beforeMount() {
+    this.createSessionId();
     this.getAllProducts();
   }
 }
@@ -135,18 +144,17 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap%27');
 
+#space {
+  padding-top: 140px;
+}
+
 #size {
   display: flex;
   min-width: 0;
-  width: 800px;
-  margin-right: 30px;
-  /* background-color: red; */
 }
 
 
 #divProduct {
-  /* background-color: green; */
-  padding: 100px 0px 100px 0px;
   margin: 10px;
 }
 
