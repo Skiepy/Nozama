@@ -17,6 +17,7 @@
         <label for="Image">Image :</label><br>
         <input type="text" id="Image" v-model="Image"><br>
 
+
         <input type="submit" value="Submit" @click="createNewProduct()">
 
     </form>
@@ -31,7 +32,8 @@ export default {
             file: [],
             Pname: "",
             Description: "",
-            Price: ""
+            Price: "",
+            Image: ""
         }
     },
     methods: {
@@ -40,7 +42,8 @@ export default {
                 await axios.post("http://localhost:5000/products", {
                     name_product: this.Pname,
                     description_product: this.Description,
-                    price_product: this.Price
+                    price_product: this.Price,
+                    image_product: this.Image
                 });
                 console.log("New product added");
             } catch (error) {
