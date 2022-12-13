@@ -18,8 +18,13 @@
 <div class="slides">
   <Slider></Slider>
 </div>
+<hr width="2250px">
 <div class="text">
-  
+    <h3>ADDRESS</h3>
+    <div class="vl"></div>
+    <h3>ADDRESS</h3>
+    <div class="vl"></div>
+    <h3>ADDRESS</h3>
 </div>
   <MyFooter></MyFooter>
 </template>
@@ -68,7 +73,6 @@ export default {
 </script>
 
 <style scoped>
-
 .all{
   background-color: #f4f4f1;
   height: auto;
@@ -113,9 +117,10 @@ export default {
   float: right;
 }
 .slides{
-  margin-right: 5%;
-  margin-left: 5%;
-  height: 30%;
-  width: 30%;
+  background-color: #f4f4f1;
+  margin-right: 12%;
+  margin-left: 12%;
+  height: 27%;
+  width: 25%;
 }
 </style>
