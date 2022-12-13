@@ -1,13 +1,13 @@
 <template>
   <MyHeader></MyHeader>
 
-  <div id="top">
+  <div id="top" style="padding-top : 50px">
     <div v-if="(nbProducts == 0)" id="emptyBasket">
       <img src="@/assets/Images/emptyCart.png" id="emptyBasketImage">
       <h1>Your cart is empty</h1>
     </div>
     <div v-else>
-      <h1> Your Basket</h1>
+      <h1 > Your Basket</h1>
       <div id="divtable">
         <table>
           <tr>
@@ -23,7 +23,7 @@
               <td><button @click="deleteProduct(product.id_product)">Delete</button></td>
             </tr>
         </table>
-        <div id="buttons">
+        <div id="buttons" style="margin-bottom : 50px">
           <button id="basket" style="background-color: rgba(34, 255, 0, 0.405)" @click="goToCheckout()">Go To
             Payment</button>
         </div>
