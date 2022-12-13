@@ -91,6 +91,7 @@ export default {
             break;
           }
         }
+        window.$cookies.set("cart", parseInt(window.$cookies.get("cart"))-1);
         window.location.reload();
       }
       catch (error) {
